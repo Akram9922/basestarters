@@ -1,5 +1,7 @@
 "use client"
 
+import { ConnectWallet, Wallet, WalletDropdown, WalletDropdownDisconnect } from "@coinbase/onchainkit/wallet"
+import { Avatar, Name, Identity, Address, EthBalance } from "@coinbase/onchainkit/identity"
 import { WalletIcon, Shield, Zap, Globe } from "lucide-react"
 
 export default function Page() {
@@ -17,34 +19,21 @@ export default function Page() {
             </span>
           </div>
 
-          <button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 py-2 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all">
-            Connect Wallet
-          </button>
+          <Wallet>
+            <ConnectWallet />
+            <WalletDropdown>
+              <Identity hasCopyAddressOnClick>
+                <Avatar />
+                <Name />
+                <Address />
+                <EthBalance />
+              </Identity>
+              <WalletDropdownDisconnect />
+            </WalletDropdown>
+          </Wallet>
+          {/* </CHANGE> */}
         </div>
       </header>
-
-      {/* Deployment Notice */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
-          <div className="flex gap-3">
-            <svg className="w-6 h-6 text-amber-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-            <div>
-              <p className="font-semibold text-amber-900 mb-1">OnchainKit Wallet Functionality Pending</p>
-              <p className="text-sm text-amber-800">
-                This version deploys successfully but requires OnchainKit integration for real wallet functionality. See
-                DEPLOYMENT.md for instructions on adding OnchainKit via GitHub after deployment.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -57,9 +46,10 @@ export default function Page() {
             device's biometrics—no seed phrases required.
           </p>
 
-          <button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 rounded-lg text-lg font-medium shadow-lg hover:shadow-xl transition-all">
-            Connect Wallet
-          </button>
+          <Wallet>
+            <ConnectWallet className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 rounded-lg text-lg font-medium shadow-lg hover:shadow-xl transition-all" />
+          </Wallet>
+          {/* </CHANGE> */}
         </div>
 
         {/* Features Grid */}
