@@ -9,8 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@coinbase/onchainkit": "latest",
-    "@tanstack/react-query": "^5.62.11",
+    "@coinbase/onchainkit": "1.1.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.454.0",
@@ -20,8 +19,8 @@
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",
     "tw-animate-css": "latest",
-    "viem": "latest",
-    "wagmi": "latest"
+    "viem": "2.41.2",
+    "wagmi": "3.1.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.9",

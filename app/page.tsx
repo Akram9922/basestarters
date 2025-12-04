@@ -1,9 +1,6 @@
 "use client"
 
-import { ConnectWallet, Wallet, WalletDropdown, WalletDropdownDisconnect } from "@coinbase/onchainkit/wallet"
-import { Avatar, Name, Identity, Address, EthBalance } from "@coinbase/onchainkit/identity"
 import { WalletIcon, Shield, Zap, Globe } from "lucide-react"
-import AddressInfo from "@/components/AddressInfo"
 
 export default function Page() {
   return (
@@ -20,24 +17,11 @@ export default function Page() {
             </span>
           </div>
 
-          <Wallet>
-            <ConnectWallet />
-            <WalletDropdown>
-              <Identity hasCopyAddressOnClick>
-                <Avatar />
-                <Name />
-                <Address />
-                <EthBalance />
-              </Identity>
-              <WalletDropdownDisconnect />
-            </WalletDropdown>
-          </Wallet>
+          <button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 py-2 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all">
+            Connect Wallet
+          </button>
         </div>
       </header>
-
-      <section className="max-w-3xl mx-auto mt-10 px-4">
-        <AddressInfo />
-      </section>
 
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -50,9 +34,9 @@ export default function Page() {
             device's biometrics—no seed phrases required.
           </p>
 
-          <Wallet>
-            <ConnectWallet className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 rounded-lg text-lg font-medium shadow-lg hover:shadow-xl transition-all" />
-          </Wallet>
+          <button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 rounded-lg text-lg font-medium shadow-lg hover:shadow-xl transition-all">
+            Connect Wallet
+          </button>
         </div>
 
         {/* Features Grid */}
