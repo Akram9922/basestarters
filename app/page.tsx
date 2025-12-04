@@ -38,7 +38,9 @@ export default function Page() {
           {/* </CHANGE> */}
         </div>
       </header>
-
+<section className="max-w-3xl mx-auto mt-10">
+  <AddressInfo />
+</section>
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center max-w-3xl mx-auto mb-16">
