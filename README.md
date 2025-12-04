@@ -1,28 +1,80 @@
-# BaseStarters – OnchainKit Smart Wallet Demo
+# Base Wallet Onboarding App
 
-This project is a fully deployed Base Smart Wallet + OnchainKit integration, built as part of my onchain builder experiments.
+A production-ready Next.js application with OnchainKit Smart Wallet integration for Base network.
 
-### 🚀 Features
-- Base Smart Wallet authentication
-- Passkey login (no seed phrase)
-- OnchainKit client integration
-- Vercel production deployment
-- Fully working Connect Wallet flow
+## Features
 
-### 🔧 Tech Stack
-- Next.js 14 (App Router)
-- OnchainKit (Coinbase)
-- Wagmi + Viem
-- Vercel Deployment
+- OnchainKit wallet provider with Smart Wallet support
+- Passkey-based wallet creation (biometric authentication)
+- Identity components (Avatar, Name, Address, Balance)
+- Base network integration via Wagmi
+- Modern UI with Tailwind CSS v4
 
-### 🌐 Live Demo
-https://basestarters.vercel.app
+## Quick Start
 
-### 👤 Builder Info
-Built and maintained by @Akram9922  
-Wallet: greates01.base.eth
+\`\`\`bash
+npm install
+npm run dev
+\`\`\`
 
-### 🔗 Purpose
-This repository demonstrates real onchain implementation and serves as
-a verified builder proof for eligibility in Base / OnchainKit / Coinbase
-ecosystem airdrops and developer programs.
+Open [http://localhost:3000](http://localhost:3000)
+
+**Note:** Wallet functionality requires environment variables. See Deployment section below.
+
+## Environment Variables
+
+Create a `.env.local` file (or add to Vercel):
+
+\`\`\`env
+# OnchainKit API Key (get from Coinbase Developer Platform)
+# Variable format: NEXT_PUBLIC_ + ONCHAINKIT_ + API_KEY
+YOUR_ONCHAINKIT_KEY=your_api_key_here
+
+NEXT_PUBLIC_APP_URL=https://your-app-url.vercel.app
+\`\`\`
+
+Get your OnchainKit API key from: https://portal.cdp.coinbase.com/products/onchainkit
+
+## Deployment
+
+### Deploy to Vercel
+
+1. Click **Publish** in v0 or push to GitHub and import to Vercel
+2. Add environment variables in Vercel Dashboard (see DEPLOYMENT.md for details)
+3. Deploy and test wallet connection
+
+**Important:** The wallet functionality only works in production environments (not in v0 preview due to iframe restrictions).
+
+## Project Structure
+
+\`\`\`
+base-wallet-onboarding/
+├── app/
+│   ├── layout.tsx          # Root layout
+│   ├── page.tsx            # Main page with wallet integration
+│   └── globals.css         # Global styles
+├── src/
+│   └── providers.tsx       # OnchainKit provider setup
+├── components/
+│   └── ui/                 # Shadcn UI components
+└── package.json
+\`\`\`
+
+## Technologies
+
+- Next.js 16 (App Router)
+- React 19
+- OnchainKit 1.1.2
+- Wagmi 3.0.2
+- Tailwind CSS v4
+- TypeScript
+
+## Resources
+
+- [OnchainKit Documentation](https://onchainkit.xyz)
+- [Base Documentation](https://docs.base.org)
+- [Wagmi Documentation](https://wagmi.sh)
+
+## License
+
+MIT

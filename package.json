@@ -21,7 +21,7 @@
     "tailwindcss-animate": "^1.0.7",
     "tw-animate-css": "latest",
     "viem": "latest",
-    "wagmi": "^2.17.3"
+    "wagmi": "latest"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.9",

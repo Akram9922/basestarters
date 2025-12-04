@@ -1,12 +1,9 @@
 "use client"
 
-import { ConnectWallet, Wallet, WalletDropdown, WalletDropdownDisconnect } from "@coinbase/onchainkit/wallet";
-import { Avatar, Name, Identity, Address, EthBalance } from "@coinbase/onchainkit/identity";
-import { WalletIcon, Shield, Zap, Globe } from "lucide-react";
-
-import WalletConnector from "@/components/WalletConnector";
-import AddressInfo from "@/components/AddressInfo";
-import { useState, useEffect } from "react";
+import { ConnectWallet, Wallet, WalletDropdown, WalletDropdownDisconnect } from "@coinbase/onchainkit/wallet"
+import { Avatar, Name, Identity, Address, EthBalance } from "@coinbase/onchainkit/identity"
+import { WalletIcon, Shield, Zap, Globe } from "lucide-react"
+import AddressInfo from "@/components/AddressInfo"
 
 export default function Page() {
   return (
@@ -35,12 +32,13 @@ export default function Page() {
               <WalletDropdownDisconnect />
             </WalletDropdown>
           </Wallet>
-          {/* </CHANGE> */}
         </div>
       </header>
-<section className="max-w-3xl mx-auto mt-10">
-  <AddressInfo />
-</section>
+
+      <section className="max-w-3xl mx-auto mt-10 px-4">
+        <AddressInfo />
+      </section>
+
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -55,7 +53,6 @@ export default function Page() {
           <Wallet>
             <ConnectWallet className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 rounded-lg text-lg font-medium shadow-lg hover:shadow-xl transition-all" />
           </Wallet>
-          {/* </CHANGE> */}
         </div>
 
         {/* Features Grid */}

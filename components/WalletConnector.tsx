@@ -1,50 +1,20 @@
-"use client";
+"use client"
 
-import React, { useState } from "react";
+import { ConnectWallet, Wallet, WalletDropdown, WalletDropdownDisconnect } from "@coinbase/onchainkit/wallet"
+import { Avatar, Name, Identity, Address } from "@coinbase/onchainkit/identity"
 
-export default function WalletConnector({ onAddress }: { onAddress: (addr: string | null) => void }) {
-  const [addr, setAddr] = useState<string | null>(null);
-
-  async function connect() {
-    try {
-      const anyWin: any = window;
-
-      if (anyWin.ethereum) {
-        const accounts: string[] = await anyWin.ethereum.request({
-          method: "eth_requestAccounts",
-        });
-
-        const a = accounts?.[0] ?? null;
-        setAddr(a);
-        onAddress(a);
-
-        if (a) localStorage.setItem("connectedAddress", a);
-        return;
-      }
-
-      alert("No wallet found!");
-    } catch (err) {
-      console.error(err);
-      onAddress(null);
-    }
-  }
-
-  function disconnect() {
-    setAddr(null);
-    onAddress(null);
-    localStorage.removeItem("connectedAddress");
-  }
-
+export default function WalletConnector() {
   return (
-    <div>
-      {addr ? (
-        <div>
-          <p>Connected: {addr}</p>
-          <button onClick={disconnect}>Disconnect</button>
-        </div>
-      ) : (
-        <button onClick={connect}>Connect Wallet</button>
-      )}
-    </div>
-  );
+    <Wallet>
+      <ConnectWallet className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 py-3 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all" />
+      <WalletDropdown>
+        <Identity hasCopyAddressOnClick>
+          <Avatar />
+          <Name />
+          <Address />
+        </Identity>
+        <WalletDropdownDisconnect />
+      </WalletDropdown>
+    </Wallet>
+  )
 }
