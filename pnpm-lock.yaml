@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       '@coinbase/onchainkit':
-        specifier: 1.1.2
+        specifier: latest
         version: 1.1.2(07b7d2e1bfc1e9757841069b530d8406)
       class-variance-authority:
         specifier: ^0.7.1
@@ -39,7 +39,7 @@ importers:
         specifier: latest
         version: 1.4.0
       viem:
-        specifier: 2.41.2
+        specifier: latest
         version: 2.41.2(bufferutil@4.0.9)(typescript@5.0.2)(utf-8-validate@5.0.10)(zod@4.1.13)
       wagmi:
         specifier: 3.1.0

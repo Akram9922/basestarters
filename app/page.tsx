@@ -1,5 +1,7 @@
 "use client"
 
+import { ConnectWallet, Wallet, WalletDropdown } from "@coinbase/onchainkit/wallet"
+import { Avatar, Name, Address, EthBalance } from "@coinbase/onchainkit/identity"
 import { WalletIcon, Shield, Zap, Globe } from "lucide-react"
 
 export default function Page() {
@@ -17,9 +19,15 @@ export default function Page() {
             </span>
           </div>
 
-          <button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 py-2 rounded-lg font-medium shadow-lg hover:shadow-xl transition-all">
-            Connect Wallet
-          </button>
+          <Wallet>
+            <ConnectWallet />
+            <WalletDropdown>
+              <Avatar />
+              <Name />
+              <Address />
+              <EthBalance />
+            </WalletDropdown>
+          </Wallet>
         </div>
       </header>
 
@@ -34,9 +42,11 @@ export default function Page() {
             device's biometrics—no seed phrases required.
           </p>
 
-          <button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 rounded-lg text-lg font-medium shadow-lg hover:shadow-xl transition-all">
-            Connect Wallet
-          </button>
+          <div className="flex justify-center">
+            <Wallet>
+              <ConnectWallet />
+            </Wallet>
+          </div>
         </div>
 
         {/* Features Grid */}
