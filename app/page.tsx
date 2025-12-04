@@ -1,8 +1,12 @@
 "use client"
 
-import { ConnectWallet, Wallet, WalletDropdown, WalletDropdownDisconnect } from "@coinbase/onchainkit/wallet"
-import { Avatar, Name, Identity, Address, EthBalance } from "@coinbase/onchainkit/identity"
-import { WalletIcon, Shield, Zap, Globe } from "lucide-react"
+import { ConnectWallet, Wallet, WalletDropdown, WalletDropdownDisconnect } from "@coinbase/onchainkit/wallet";
+import { Avatar, Name, Identity, Address, EthBalance } from "@coinbase/onchainkit/identity";
+import { WalletIcon, Shield, Zap, Globe } from "lucide-react";
+
+import WalletConnector from "@/components/WalletConnector";
+import AddressInfo from "@/components/AddressInfo";
+import { useState, useEffect } from "react";
 
 export default function Page() {
   return (
