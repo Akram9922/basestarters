@@ -9,6 +9,9 @@
     "start": "next start"
   },
   "dependencies": {
+    "@coinbase/onchainkit": "latest",
+    "wagmi": "^1.4.0",
+    "viem": "^1.0.2",
     "lucide-react": "^0.454.0",
     "next": "16.0.7",
     "react": "19.2.0",
