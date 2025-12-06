@@ -1,6 +1,8 @@
 "use client"
 
 import { WalletIcon, Shield, Zap, Globe } from "lucide-react"
+import { ConnectWallet, Wallet, WalletDropdown, WalletDropdownDisconnect } from "@coinbase/onchainkit/wallet"
+import { Address, Avatar, Name, Identity, EthBalance } from "@coinbase/onchainkit/identity"
 
 export default function Page() {
   return (
@@ -17,12 +19,21 @@ export default function Page() {
             </span>
           </div>
 
-          <button
-            onClick={() => alert("Wallet connect will be enabled after deployment")}
-            className="px-6 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:shadow-lg transition-shadow font-semibold"
-          >
-            Connect Wallet
-          </button>
+          <Wallet>
+            <ConnectWallet>
+              <Avatar className="h-6 w-6" />
+              <Name />
+            </ConnectWallet>
+            <WalletDropdown>
+              <Identity className="px-4 pt-3 pb-2" hasCopyAddressOnClick>
+                <Avatar />
+                <Name />
+                <Address />
+                <EthBalance />
+              </Identity>
+              <WalletDropdownDisconnect />
+            </WalletDropdown>
+          </Wallet>
         </div>
       </header>
 
@@ -37,9 +48,21 @@ export default function Page() {
             device's biometrics—no seed phrases required.
           </p>
 
-          <button className="px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:shadow-lg transition-shadow font-semibold text-lg">
-            Get Started
-          </button>
+          <Wallet>
+            <ConnectWallet className="px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:shadow-lg transition-shadow font-semibold text-lg">
+              <Avatar className="h-6 w-6" />
+              <Name />
+            </ConnectWallet>
+            <WalletDropdown>
+              <Identity className="px-4 pt-3 pb-2" hasCopyAddressOnClick>
+                <Avatar />
+                <Name />
+                <Address />
+                <EthBalance />
+              </Identity>
+              <WalletDropdownDisconnect />
+            </WalletDropdown>
+          </Wallet>
         </div>
 
         {/* Features Grid */}
