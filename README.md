@@ -77,4 +77,4 @@ base-wallet-onboarding/
 
 ## License
 
-MIT
+  MIT
