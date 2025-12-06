@@ -56,10 +56,9 @@ import { OnchainKitProvider } from "@coinbase/onchainkit"
 import { base } from "wagmi/chains"
 
 export function Providers({ children }: { children: ReactNode }) {
-  const apiKey = process.env[`NEXT_PUBLIC_ONCHAINKIT_${"API_KEY"}`]
   return (
     <OnchainKitProvider 
-      apiKey={apiKey} 
+      apiKey={process.env.NEXT_PUBLIC_ONCHAINKIT_API_KEY} 
       chain={base}
     >
       {children}
@@ -112,8 +111,8 @@ In Vercel Dashboard → Settings → Environment Variables:
 
 | Variable Name | Value | Description |
 |---------------|-------|-------------|
-| OnchainKit Client Key | Your API key | Get from Coinbase Developer Platform (see variable name in code comments) |
-| App URL Variable | `https://your-app.vercel.app` | Your deployed URL |
+| `NEXT_PUBLIC_ONCHAINKIT_API_KEY` | Your API key | Get from Coinbase Developer Platform |
+| `NEXT_PUBLIC_APP_URL` | `https://your-app.vercel.app` | Your deployed URL |
 
 Get your OnchainKit API key from: https://portal.cdp.coinbase.com/products/onchainkit
 
@@ -153,7 +152,7 @@ If you encounter "Module not found: wagmi/experimental" errors:
 ### Wallet Connection Not Working
 
 - Verify environment variables are set in Vercel
-- Ensure your OnchainKit API key is correctly configured
+- Ensure `NEXT_PUBLIC_ONCHAINKIT_API_KEY` is correct
 - Check that API key is valid in Coinbase Developer Platform
 - Redeploy after adding/updating environment variables
 
