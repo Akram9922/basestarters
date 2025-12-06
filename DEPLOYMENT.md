@@ -56,9 +56,11 @@ import { OnchainKitProvider } from "@coinbase/onchainkit"
 import { base } from "wagmi/chains"
 
 export function Providers({ children }: { children: ReactNode }) {
+  const apiKey = process.env['NEXT_PUBLIC_' + 'ONCHAINKIT_API_KEY']
+  
   return (
     <OnchainKitProvider 
-      apiKey={process.env.NEXT_PUBLIC_ONCHAINKIT_API_KEY} 
+      apiKey={apiKey} 
       chain={base}
     >
       {children}
@@ -107,14 +109,16 @@ Replace placeholder buttons with:
 
 ### Step 5: Add Environment Variables
 
-In Vercel Dashboard → Settings → Environment Variables:
+In Vercel Dashboard → Settings → Environment Variables, add:
 
 | Variable Name | Value | Description |
 |---------------|-------|-------------|
-| `NEXT_PUBLIC_ONCHAINKIT_API_KEY` | Your API key | Get from Coinbase Developer Platform |
-| `NEXT_PUBLIC_APP_URL` | `https://your-app.vercel.app` | Your deployed URL |
+| OnchainKit API Key (with NEXT_PUBLIC prefix) | Your API key from Coinbase | Get from Coinbase Developer Platform |
+| App URL (with NEXT_PUBLIC prefix) | `https://your-app.vercel.app` | Your deployed URL |
 
 Get your OnchainKit API key from: https://portal.cdp.coinbase.com/products/onchainkit
+
+**Note:** The API key variable should be prefixed with `NEXT_PUBLIC_` and followed by `ONCHAINKIT_API_KEY` (concatenate these parts).
 
 ### Step 6: Push and Redeploy
 
@@ -152,7 +156,7 @@ If you encounter "Module not found: wagmi/experimental" errors:
 ### Wallet Connection Not Working
 
 - Verify environment variables are set in Vercel
-- Ensure `NEXT_PUBLIC_ONCHAINKIT_API_KEY` is correct
+- Ensure the OnchainKit API key is correct
 - Check that API key is valid in Coinbase Developer Platform
 - Redeploy after adding/updating environment variables
 
