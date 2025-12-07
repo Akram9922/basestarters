@@ -1,8 +1,7 @@
 "use client"
 
 import { WalletIcon, Shield, Zap, Globe } from "lucide-react"
-import { ConnectWallet, Wallet, WalletDropdown, WalletDropdownDisconnect } from "@coinbase/onchainkit/wallet"
-import { Address, Avatar, Name, Identity, EthBalance } from "@coinbase/onchainkit/identity"
+import { Button } from "@/components/ui/button"
 
 export default function Page() {
   return (
@@ -19,21 +18,7 @@ export default function Page() {
             </span>
           </div>
 
-          <Wallet>
-            <ConnectWallet>
-              <Avatar className="h-6 w-6" />
-              <Name />
-            </ConnectWallet>
-            <WalletDropdown>
-              <Identity className="px-4 pt-3 pb-2" hasCopyAddressOnClick>
-                <Avatar />
-                <Name />
-                <Address />
-                <EthBalance />
-              </Identity>
-              <WalletDropdownDisconnect />
-            </WalletDropdown>
-          </Wallet>
+          <Button variant="outline">Connect Wallet</Button>
         </div>
       </header>
 
@@ -48,21 +33,14 @@ export default function Page() {
             device's biometrics—no seed phrases required.
           </p>
 
-          <Wallet>
-            <ConnectWallet className="px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:shadow-lg transition-shadow font-semibold text-lg">
-              <Avatar className="h-6 w-6" />
-              <Name />
-            </ConnectWallet>
-            <WalletDropdown>
-              <Identity className="px-4 pt-3 pb-2" hasCopyAddressOnClick>
-                <Avatar />
-                <Name />
-                <Address />
-                <EthBalance />
-              </Identity>
-              <WalletDropdownDisconnect />
-            </WalletDropdown>
-          </Wallet>
+          <Button
+            size="lg"
+            className="px-8 py-6 text-lg bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700"
+          >
+            Connect Wallet
+          </Button>
+
+          <p className="mt-4 text-sm text-gray-500">Deployment successful! Wallet integration coming soon.</p>
         </div>
 
         {/* Features Grid */}
