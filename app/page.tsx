@@ -1,7 +1,8 @@
 "use client"
 
 import { WalletIcon, Shield, Zap, Globe } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { ConnectWallet, Wallet, WalletDropdown, WalletDropdownDisconnect } from "@coinbase/onchainkit/wallet"
+import { Address, Avatar, Name, Identity, EthBalance } from "@coinbase/onchainkit/identity"
 
 export default function Page() {
   return (
@@ -18,7 +19,21 @@ export default function Page() {
             </span>
           </div>
 
-          <Button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white">Connect Wallet</Button>
+          <Wallet>
+            <ConnectWallet>
+              <Avatar className="h-6 w-6" />
+              <Name />
+            </ConnectWallet>
+            <WalletDropdown>
+              <Identity className="px-4 pt-3 pb-2" hasCopyAddressOnClick>
+                <Avatar />
+                <Name />
+                <Address />
+                <EthBalance />
+              </Identity>
+              <WalletDropdownDisconnect />
+            </WalletDropdown>
+          </Wallet>
         </div>
       </header>
 
@@ -33,16 +48,21 @@ export default function Page() {
             device's biometrics—no seed phrases required.
           </p>
 
-          <Button className="px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:shadow-lg transition-shadow font-semibold text-lg">
-            Get Started
-          </Button>
-
-          <div className="mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
-            <p className="text-sm text-blue-800">
-              🔧 Wallet connect functionality will be enabled after successful deployment. Push this version to GitHub
-              for a working deployment.
-            </p>
-          </div>
+          <Wallet>
+            <ConnectWallet className="px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:shadow-lg transition-shadow font-semibold text-lg">
+              <Avatar className="h-6 w-6" />
+              <Name />
+            </ConnectWallet>
+            <WalletDropdown>
+              <Identity className="px-4 pt-3 pb-2" hasCopyAddressOnClick>
+                <Avatar />
+                <Name />
+                <Address />
+                <EthBalance />
+              </Identity>
+              <WalletDropdownDisconnect />
+            </WalletDropdown>
+          </Wallet>
         </div>
 
         {/* Features Grid */}
