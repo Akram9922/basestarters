@@ -48,9 +48,6 @@ export default function Page() {
     )
   }
 
-  const { ConnectWallet, Wallet, WalletDropdown, WalletDropdownDisconnect } = require("@coinbase/onchainkit/wallet")
-  const { Address, Avatar, Name, Identity, EthBalance } = require("@coinbase/onchainkit/identity")
-
   return (
     <main className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
       {/* Header */}
@@ -64,22 +61,7 @@ export default function Page() {
               Base Wallet
             </span>
           </div>
-
-          <Wallet>
-            <ConnectWallet>
-              <Avatar className="h-6 w-6" />
-              <Name />
-            </ConnectWallet>
-            <WalletDropdown>
-              <Identity className="px-4 pt-3 pb-2" hasCopyAddressOnClick>
-                <Avatar />
-                <Name />
-                <Address />
-                <EthBalance />
-              </Identity>
-              <WalletDropdownDisconnect />
-            </WalletDropdown>
-          </Wallet>
+          <Button variant="outline">Connect Wallet</Button>
         </div>
       </header>
 
@@ -94,21 +76,19 @@ export default function Page() {
             device's biometrics—no seed phrases required.
           </p>
 
-          <Wallet>
-            <ConnectWallet className="px-8 py-6 text-lg bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700">
-              <Avatar className="h-6 w-6" />
-              <Name />
-            </ConnectWallet>
-            <WalletDropdown>
-              <Identity className="px-4 pt-3 pb-2" hasCopyAddressOnClick>
-                <Avatar />
-                <Name />
-                <Address />
-                <EthBalance />
-              </Identity>
-              <WalletDropdownDisconnect />
-            </WalletDropdown>
-          </Wallet>
+          <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-8">
+            <p className="text-lg text-green-900 mb-2 font-semibold">Deployment successful!</p>
+            <p className="text-green-700">
+              Wallet integration coming soon. Check the GitHub repository for setup instructions.
+            </p>
+          </div>
+
+          <Button
+            size="lg"
+            className="px-8 py-6 text-lg bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700"
+          >
+            Get Started
+          </Button>
         </div>
 
         {/* Features Grid */}
