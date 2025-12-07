@@ -2,11 +2,12 @@ import type React from "react"
 import type { Metadata } from "next"
 import Providers from "@/src/providers"
 import "./globals.css"
+// The styles will be included via CDN in production or loaded conditionally
 
 export const metadata: Metadata = {
   title: "Base Wallet Onboarding",
   description: "Seamless wallet onboarding with Smart Wallet and passkey support on Base",
-    generator: 'v0.app'
+  generator: "v0.app",
 }
 
 export default function RootLayout({
