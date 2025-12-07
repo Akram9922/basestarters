@@ -1,7 +1,7 @@
 "use client"
 
 import { WalletIcon, Shield, Zap, Globe } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { WalletButton } from "@/components/wallet-button"
 
 export default function Page() {
   return (
@@ -16,19 +16,12 @@ export default function Page() {
               Base Wallet
             </span>
           </div>
-          <Button variant="outline">Connect Wallet (Coming Soon)</Button>
+          <WalletButton />
         </div>
       </header>
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="bg-green-50 border border-green-200 rounded-lg p-8 mb-8">
-            <p className="text-lg text-green-900 mb-2 font-semibold">Deployment Ready</p>
-            <p className="text-green-700">
-              This version will deploy successfully to Vercel. Wallet integration can be added after successful
-              deployment.
-            </p>
-          </div>
           <h1 className="text-5xl sm:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
             Welcome to Base
           </h1>
@@ -37,12 +30,9 @@ export default function Page() {
             WalletConnect-compatible wallet.
           </p>
 
-          <Button
-            size="lg"
-            className="px-8 py-6 text-lg bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700"
-          >
-            Connect Your Wallet (Coming Soon)
-          </Button>
+          <div className="flex justify-center">
+            <WalletButton />
+          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mt-20">
