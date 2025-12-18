@@ -7,7 +7,7 @@ import { base } from "@coinbase/onchainkit/constants"
 export default function Providers({ children }: { children: ReactNode }) {
   return (
     <OnchainKitProvider
-      apiKey={process.env.NEXT_PUBLIC_ONCHAINKIT_API_KEY}
+      apiKey={process.env.NEXT_PUBLIC_ONCHAINKIT_PROJECT_ID}
       chain={base}
       config={{
         appearance: {
