@@ -1,96 +1,9 @@
 "use client"
 
 import { WalletIcon, Shield, Zap, Globe } from "lucide-react"
-import { Wallet, ConnectWallet } from "@coinbase/onchainkit/wallet"
-import { Avatar, Name } from "@coinbase/onchainkit/identity"
-import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 
 export default function Page() {
-  const [isPreview, setIsPreview] = useState(true)
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-    const hostname = window.location.hostname
-    console.log("[v0] Current hostname:", hostname)
-    const isV0Preview = hostname.includes("vusercontent.net") || hostname.includes("v0.app")
-    console.log("[v0] Is v0 preview:", isV0Preview)
-    setIsPreview(isV0Preview)
-  }, [])
-
-  if (!mounted || isPreview) {
-    return (
-      <main className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
-        <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
-                <WalletIcon className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                Base Wallet
-              </span>
-            </div>
-            <Button disabled className="bg-blue-600 text-white px-8 py-3 text-lg">
-              Connect Wallet (Deploy to Enable)
-            </Button>
-          </div>
-        </header>
-
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h1 className="text-5xl sm:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent text-balance">
-              Welcome to Base
-            </h1>
-            <p className="text-xl text-gray-600 mb-8 text-pretty">
-              Experience seamless onchain interactions with your wallet. Connect using Coinbase Smart Wallet with
-              passkey support.
-            </p>
-
-            <div className="flex justify-center">
-              <Button disabled className="bg-blue-600 text-white px-8 py-3 text-lg">
-                Connect Wallet (Deploy to Enable)
-              </Button>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 mt-20">
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <Shield className="w-6 h-6 text-blue-600" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Smart Wallet</h3>
-              <p className="text-gray-600">
-                Coinbase Smart Wallet with passkey support. Secure, fast, and seamless authentication.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
-                <Zap className="w-6 h-6 text-indigo-600" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Instant Connection</h3>
-              <p className="text-gray-600">
-                Get started in seconds with one-click wallet connection. No browser extension required.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                <Globe className="w-6 h-6 text-purple-600" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Base Network</h3>
-              <p className="text-gray-600">
-                Built on Base, Coinbase's secure Layer 2 network. Fast transactions, low fees.
-              </p>
-            </div>
-          </div>
-        </section>
-      </main>
-    )
-  }
-
   return (
     <main className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
       <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
@@ -103,12 +16,7 @@ export default function Page() {
               Base Wallet
             </span>
           </div>
-          <Wallet>
-            <ConnectWallet>
-              <Avatar className="h-6 w-6" />
-              <Name />
-            </ConnectWallet>
-          </Wallet>
+          <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">Connect Wallet</Button>
         </div>
       </header>
 
@@ -123,12 +31,7 @@ export default function Page() {
           </p>
 
           <div className="flex justify-center">
-            <Wallet>
-              <ConnectWallet>
-                <Avatar className="h-6 w-6" />
-                <Name />
-              </ConnectWallet>
-            </Wallet>
+            <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">Connect Wallet</Button>
           </div>
         </div>
 
