@@ -2,8 +2,17 @@
 
 import { WalletIcon, Shield, Zap, Globe } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Wallet, ConnectWallet } from "@coinbase/onchainkit/wallet"
+import { Avatar, Name } from "@coinbase/onchainkit/identity"
+import { useEffect, useState } from "react"
 
 export default function Page() {
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
   return (
     <main className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
       <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
@@ -16,7 +25,16 @@ export default function Page() {
               Base Wallet
             </span>
           </div>
-          <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">Connect Wallet</Button>
+          {isClient ? (
+            <Wallet>
+              <ConnectWallet>
+                <Avatar className="h-6 w-6" />
+                <Name />
+              </ConnectWallet>
+            </Wallet>
+          ) : (
+            <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">Connect Wallet</Button>
+          )}
         </div>
       </header>
 
@@ -31,7 +49,16 @@ export default function Page() {
           </p>
 
           <div className="flex justify-center">
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">Connect Wallet</Button>
+            {isClient ? (
+              <Wallet>
+                <ConnectWallet>
+                  <Avatar className="h-6 w-6" />
+                  <Name />
+                </ConnectWallet>
+              </Wallet>
+            ) : (
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">Connect Wallet</Button>
+            )}
           </div>
         </div>
 
