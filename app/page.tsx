@@ -1,7 +1,9 @@
 "use client"
 
 import { WalletIcon, Shield, Zap, Globe } from "lucide-react"
-import { WalletButton } from "@/components/wallet-button"
+import { Wallet, ConnectWallet } from "@coinbase/onchainkit/wallet"
+import { WalletDropdown, WalletDropdownLink, WalletDropdownDisconnect } from "@coinbase/onchainkit/wallet"
+import { Address, Avatar, Name, Identity, EthBalance } from "@coinbase/onchainkit/identity"
 
 export default function Page() {
   return (
@@ -16,22 +18,56 @@ export default function Page() {
               Base Wallet
             </span>
           </div>
-          <WalletButton />
+          <Wallet>
+            <ConnectWallet>
+              <Avatar className="h-6 w-6" />
+              <Name />
+            </ConnectWallet>
+            <WalletDropdown>
+              <Identity className="px-4 pt-3 pb-2" hasCopyAddressOnClick>
+                <Avatar />
+                <Name />
+                <Address />
+                <EthBalance />
+              </Identity>
+              <WalletDropdownLink icon="wallet" href="https://keys.coinbase.com">
+                Wallet
+              </WalletDropdownLink>
+              <WalletDropdownDisconnect />
+            </WalletDropdown>
+          </Wallet>
         </div>
       </header>
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h1 className="text-5xl sm:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
+          <h1 className="text-5xl sm:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent text-balance">
             Welcome to Base
           </h1>
-          <p className="text-xl text-gray-600 mb-8">
-            Experience seamless onchain interactions with your wallet. Connect using Coinbase Wallet, MetaMask, or any
-            WalletConnect-compatible wallet.
+          <p className="text-xl text-gray-600 mb-8 text-pretty">
+            Experience seamless onchain interactions with your wallet. Connect using Coinbase Smart Wallet with passkey
+            support.
           </p>
 
           <div className="flex justify-center">
-            <WalletButton />
+            <Wallet>
+              <ConnectWallet>
+                <Avatar className="h-6 w-6" />
+                <Name />
+              </ConnectWallet>
+              <WalletDropdown>
+                <Identity className="px-4 pt-3 pb-2" hasCopyAddressOnClick>
+                  <Avatar />
+                  <Name />
+                  <Address />
+                  <EthBalance />
+                </Identity>
+                <WalletDropdownLink icon="wallet" href="https://keys.coinbase.com">
+                  Wallet
+                </WalletDropdownLink>
+                <WalletDropdownDisconnect />
+              </WalletDropdown>
+            </Wallet>
           </div>
         </div>
 
@@ -40,9 +76,9 @@ export default function Page() {
             <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
               <Shield className="w-6 h-6 text-blue-600" />
             </div>
-            <h3 className="text-xl font-bold mb-2">Multi-Wallet Support</h3>
+            <h3 className="text-xl font-bold mb-2">Smart Wallet</h3>
             <p className="text-gray-600">
-              Connect with Coinbase Wallet, MetaMask, WalletConnect, and more. Your choice, your control.
+              Coinbase Smart Wallet with passkey support. Secure, fast, and seamless authentication.
             </p>
           </div>
 
@@ -52,7 +88,7 @@ export default function Page() {
             </div>
             <h3 className="text-xl font-bold mb-2">Instant Connection</h3>
             <p className="text-gray-600">
-              Get started in seconds with one-click wallet connection. Seamless integration with Base network.
+              Get started in seconds with one-click wallet connection. No browser extension required.
             </p>
           </div>
 
@@ -62,7 +98,7 @@ export default function Page() {
             </div>
             <h3 className="text-xl font-bold mb-2">Base Network</h3>
             <p className="text-gray-600">
-              Built on Base, Coinbase's secure Layer 2 network. Fast transactions, low fees, endless possibilities.
+              Built on Base, Coinbase's secure Layer 2 network. Fast transactions, low fees.
             </p>
           </div>
         </div>
