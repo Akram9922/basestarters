@@ -12,10 +12,10 @@ A production-ready Next.js application with OnchainKit Smart Wallet integration 
 
 ## Quick Start
 
-\`\`\`bash
+```bash
 npm install
 npm run dev
-\`\`\`
+```
 
 Open [http://localhost:3000](http://localhost:3000)
 
@@ -25,13 +25,13 @@ Open [http://localhost:3000](http://localhost:3000)
 
 Create a `.env.local` file (or add to Vercel):
 
-\`\`\`env
+```env
 # OnchainKit API Key (get from Coinbase Developer Platform)
 # Variable format: NEXT_PUBLIC_ + ONCHAINKIT_ + API_KEY
 YOUR_ONCHAINKIT_KEY=your_api_key_here
 
 NEXT_PUBLIC_APP_URL=https://your-app-url.vercel.app
-\`\`\`
+```
 
 Get your OnchainKit API key from: https://portal.cdp.coinbase.com/products/onchainkit
 
@@ -47,7 +47,7 @@ Get your OnchainKit API key from: https://portal.cdp.coinbase.com/products/oncha
 
 ## Project Structure
 
-\`\`\`
+```
 base-wallet-onboarding/
 ├── app/
 │   ├── layout.tsx          # Root layout
@@ -58,7 +58,7 @@ base-wallet-onboarding/
 ├── components/
 │   └── ui/                 # Shadcn UI components
 └── package.json
-\`\`\`
+```
 
 ## Technologies
 

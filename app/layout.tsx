@@ -2,7 +2,6 @@ import type React from "react"
 import type { Metadata } from "next"
 import Providers from "@/src/providers"
 import "./globals.css"
-// The styles will be included via CDN in production or loaded conditionally
 
 export const metadata: Metadata = {
   title: "Base Wallet Onboarding",

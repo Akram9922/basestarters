@@ -29,26 +29,26 @@ After deploying the placeholder version, add OnchainKit via GitHub:
 
 Run in your local repository:
 
-\`\`\`bash
+```bash
 npm install @coinbase/onchainkit@^0.38.8 wagmi@^2.17.3 viem@^2.21.54 @tanstack/react-query@^5.62.12
-\`\`\`
+```
 
 Or manually edit `package.json` to add:
 
-\`\`\`json
+```json
 "dependencies": {
   "@coinbase/onchainkit": "^0.38.8",
   "wagmi": "^2.17.3",
   "viem": "^2.21.54",
   "@tanstack/react-query": "^5.62.12"
 }
-\`\`\`
+```
 
 ### Step 3: Update src/providers.tsx
 
 Replace the contents with:
 
-\`\`\`tsx
+```tsx
 "use client"
 
 import type { ReactNode } from "react"
@@ -67,13 +67,13 @@ export function Providers({ children }: { children: ReactNode }) {
     </OnchainKitProvider>
   )
 }
-\`\`\`
+```
 
 ### Step 4: Update app/page.tsx
 
 Replace button placeholders with real OnchainKit components:
 
-\`\`\`tsx
+```tsx
 import {
   ConnectWallet,
   Wallet,
@@ -82,11 +82,11 @@ import {
   WalletDropdownDisconnect,
 } from "@coinbase/onchainkit/wallet"
 import { Address, Avatar, Name, Identity, EthBalance } from "@coinbase/onchainkit/identity"
-\`\`\`
+```
 
 Replace placeholder buttons with:
 
-\`\`\`tsx
+```tsx
 <Wallet>
   <ConnectWallet>
     <Avatar className="h-6 w-6" />
@@ -105,7 +105,7 @@ Replace placeholder buttons with:
     <WalletDropdownDisconnect />
   </WalletDropdown>
 </Wallet>
-\`\`\`
+```
 
 ### Step 5: Add Environment Variables
 
@@ -122,11 +122,11 @@ Get your OnchainKit API key from: https://portal.cdp.coinbase.com/products/oncha
 
 ### Step 6: Push and Redeploy
 
-\`\`\`bash
+```bash
 git add .
 git commit -m "Add OnchainKit wallet functionality"
 git push origin main
-\`\`\`
+```
 
 Vercel will automatically redeploy with full wallet functionality.
 

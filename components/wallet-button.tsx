@@ -1,19 +1,9 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-
 export function WalletButton() {
-  const isV0Preview = typeof window !== "undefined" && window.location.hostname.includes("vusercontent.net")
-
-  if (isV0Preview) {
-    return (
-      <Button variant="outline" disabled>
-        Connect Wallet (Deploy to enable)
-      </Button>
-    )
-  }
-
-  const ConnectButton = require("@rainbow-me/rainbowkit").ConnectButton
-
-  return <ConnectButton />
+  return (
+    <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+      Connect Wallet (Coming Soon)
+    </button>
+  )
 }
