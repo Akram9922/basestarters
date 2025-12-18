@@ -2,7 +2,7 @@
 
 import type { ReactNode } from "react"
 import { OnchainKitProvider } from "@coinbase/onchainkit"
-import { base } from "@coinbase/onchainkit/constants"
+import { base } from "viem/chains"
 
 export default function Providers({ children }: { children: ReactNode }) {
   return (
