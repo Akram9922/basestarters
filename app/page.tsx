@@ -12,7 +12,11 @@ export default function Page() {
 
   useEffect(() => {
     setMounted(true)
-    setIsPreview(window.location.hostname.includes("vusercontent.net"))
+    const hostname = window.location.hostname
+    console.log("[v0] Current hostname:", hostname)
+    const isV0Preview = hostname.includes("vusercontent.net") || hostname.includes("v0.app")
+    console.log("[v0] Is v0 preview:", isV0Preview)
+    setIsPreview(isV0Preview)
   }, [])
 
   if (!mounted || isPreview) {
