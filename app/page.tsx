@@ -3,8 +3,33 @@
 import { WalletIcon, Shield, Zap, Globe } from "lucide-react"
 import { Wallet, ConnectWallet } from "@coinbase/onchainkit/wallet"
 import { Avatar, Name } from "@coinbase/onchainkit/identity"
+import { useState, useEffect } from "react"
+import { Button } from "@/components/ui/button"
 
 export default function Page() {
+  const [isPreview, setIsPreview] = useState(true)
+
+  useEffect(() => {
+    setIsPreview(window.location.hostname.includes("vusercontent.net"))
+  }, [])
+
+  const PreviewWalletButton = () => (
+    <Button disabled className="bg-blue-600 text-white">
+      Connect Wallet (Deploy to Enable)
+    </Button>
+  )
+
+  const WalletButton = isPreview ? (
+    <PreviewWalletButton />
+  ) : (
+    <Wallet>
+      <ConnectWallet>
+        <Avatar className="h-6 w-6" />
+        <Name />
+      </ConnectWallet>
+    </Wallet>
+  )
+
   return (
     <main className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
       <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
@@ -17,12 +42,7 @@ export default function Page() {
               Base Wallet
             </span>
           </div>
-          <Wallet>
-            <ConnectWallet>
-              <Avatar className="h-6 w-6" />
-              <Name />
-            </ConnectWallet>
-          </Wallet>
+          {WalletButton}
         </div>
       </header>
 
@@ -36,14 +56,7 @@ export default function Page() {
             support.
           </p>
 
-          <div className="flex justify-center">
-            <Wallet>
-              <ConnectWallet>
-                <Avatar className="h-6 w-6" />
-                <Name />
-              </ConnectWallet>
-            </Wallet>
-          </div>
+          <div className="flex justify-center">{WalletButton}</div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mt-20">
