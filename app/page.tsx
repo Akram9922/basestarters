@@ -1,9 +1,7 @@
 "use client"
 
 import { WalletIcon, Shield, Zap, Globe } from "lucide-react"
-import { Wallet, ConnectWallet } from "@coinbase/onchainkit/wallet"
-import { WalletDropdown, WalletDropdownLink, WalletDropdownDisconnect } from "@coinbase/onchainkit/wallet"
-import { Address, Avatar, Name, Identity, EthBalance } from "@coinbase/onchainkit/identity"
+import { Button } from "@/components/ui/button"
 
 export default function Page() {
   return (
@@ -18,24 +16,9 @@ export default function Page() {
               Base Wallet
             </span>
           </div>
-          <Wallet>
-            <ConnectWallet>
-              <Avatar className="h-6 w-6" />
-              <Name />
-            </ConnectWallet>
-            <WalletDropdown>
-              <Identity className="px-4 pt-3 pb-2" hasCopyAddressOnClick>
-                <Avatar />
-                <Name />
-                <Address />
-                <EthBalance />
-              </Identity>
-              <WalletDropdownLink icon="wallet" href="https://keys.coinbase.com">
-                Wallet
-              </WalletDropdownLink>
-              <WalletDropdownDisconnect />
-            </WalletDropdown>
-          </Wallet>
+          <Button disabled className="bg-gray-200 text-gray-500">
+            Connect Wallet (Add OnchainKit)
+          </Button>
         </div>
       </header>
 
@@ -50,24 +33,9 @@ export default function Page() {
           </p>
 
           <div className="flex justify-center">
-            <Wallet>
-              <ConnectWallet>
-                <Avatar className="h-6 w-6" />
-                <Name />
-              </ConnectWallet>
-              <WalletDropdown>
-                <Identity className="px-4 pt-3 pb-2" hasCopyAddressOnClick>
-                  <Avatar />
-                  <Name />
-                  <Address />
-                  <EthBalance />
-                </Identity>
-                <WalletDropdownLink icon="wallet" href="https://keys.coinbase.com">
-                  Wallet
-                </WalletDropdownLink>
-                <WalletDropdownDisconnect />
-              </WalletDropdown>
-            </Wallet>
+            <Button disabled className="bg-gray-200 text-gray-500">
+              Connect Wallet (Add OnchainKit)
+            </Button>
           </div>
         </div>
 
