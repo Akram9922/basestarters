@@ -2,8 +2,6 @@
 
 import { WalletIcon, Shield, Zap, Globe } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Wallet, ConnectWallet } from "@coinbase/onchainkit/wallet"
-import { Avatar, Name } from "@coinbase/onchainkit/identity"
 import { useEffect, useState } from "react"
 
 export default function Page() {
@@ -25,16 +23,7 @@ export default function Page() {
               Base Wallet
             </span>
           </div>
-          {isClient ? (
-            <Wallet>
-              <ConnectWallet>
-                <Avatar className="h-6 w-6" />
-                <Name />
-              </ConnectWallet>
-            </Wallet>
-          ) : (
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">Connect Wallet</Button>
-          )}
+          <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">Connect Wallet</Button>
         </div>
       </header>
 
@@ -49,16 +38,7 @@ export default function Page() {
           </p>
 
           <div className="flex justify-center">
-            {isClient ? (
-              <Wallet>
-                <ConnectWallet>
-                  <Avatar className="h-6 w-6" />
-                  <Name />
-                </ConnectWallet>
-              </Wallet>
-            ) : (
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">Connect Wallet</Button>
-            )}
+            <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">Connect Wallet</Button>
           </div>
         </div>
 
