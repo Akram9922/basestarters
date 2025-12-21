@@ -2,7 +2,6 @@ import type React from "react"
 import type { Metadata } from "next"
 import Providers from "./providers"
 import "./globals.css"
-import "@coinbase/onchainkit/styles.css"
 
 export const metadata: Metadata = {
   title: "Base Wallet Onboarding",
